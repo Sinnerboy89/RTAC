@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="YVVYEj" name="RTAC" projectType="guiapp" jucerVersion="5.4.3">
-  <MAINGROUP id="Ex8FVl" name="RTAC">
+<JUCERPROJECT id="YVVYEj" name="RTAC_JUCE" projectType="guiapp" jucerVersion="5.4.3">
+  <MAINGROUP id="Ex8FVl" name="RTAC_JUCE">
     <GROUP id="{D63CD2B2-9DD9-103F-963F-1E426F005157}" name="Source">
       <FILE id="mAGEtp" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="KZz08W" name="MainComponent.cpp" compile="1" resource="0"
