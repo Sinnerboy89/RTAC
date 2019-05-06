@@ -25,8 +25,25 @@ MainComponent::MainComponent()
     else
     {
         // Specify the number of input and output channels that we want to open
-        setAudioChannels (2, 2);
+        setAudioChannels (0, 2);
     }
+
+	// load 5.1 signal
+	AudioFormatManager formatManager;
+	AudioBuffer<float>* file_fl, file_fr, file_c, file_lfe, file_rl, file_rr;
+
+	FileChooser chooser("Choose FL...",
+	{},
+		"*.wav");
+	if (chooser.browseForFileToOpen())
+	{
+		auto file = chooser.getResult();
+		auto* reader = formatManager.createReaderFor(file);
+		if (reader != nullptr)
+		{
+			reader->read(file_fl, 0, 441000, 0, true, false);
+		}
+	}
 }
 
 MainComponent::~MainComponent()
@@ -36,7 +53,7 @@ MainComponent::~MainComponent()
 }
 
 //==============================================================================
-void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
+void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRate) // WHY ISN'T THIS BEING CALLED
 {
     // This function will be called when the audio device is started, or when
     // its settings (i.e. sample rate, block size, etc) are changed.
@@ -45,6 +62,7 @@ void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRat
     // but be careful - it will be called on the audio thread, not the GUI thread.
 
     // For more details, see the help for AudioProcessor::prepareToPlay()
+
 }
 
 void MainComponent::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
