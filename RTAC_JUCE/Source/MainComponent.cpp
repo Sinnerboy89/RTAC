@@ -29,21 +29,17 @@ MainComponent::MainComponent()
     }
 
 	// load 5.1 signal
-	AudioFormatManager formatManager;
 	AudioBuffer<float>* file_fl, file_fr, file_c, file_lfe, file_rl, file_rr;
+	load_wav(file_fl, String("Load FL"));
+	load_wav(file_fl, String("Load FR"));
+	load_wav(file_fl, String("Load C"));
+	load_wav(file_fl, String("Load LFE"));
+	load_wav(file_fl, String("Load RL"));
+	load_wav(file_fl, String("Load RR"));
 
-	FileChooser chooser("Choose FL...",
-	{},
-		"*.wav");
-	if (chooser.browseForFileToOpen())
-	{
-		auto file = chooser.getResult();
-		auto* reader = formatManager.createReaderFor(file);
-		if (reader != nullptr)
-		{
-			reader->read(file_fl, 0, 441000, 0, true, false);
-		}
-	}
+	// load HRIRs
+
+	
 }
 
 MainComponent::~MainComponent()
