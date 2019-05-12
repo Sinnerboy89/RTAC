@@ -34,7 +34,7 @@ public:
 
 	// rtac_basic
 	void load_wav(AudioBuffer<float>* ab, String prompt);
-	AudioBuffer<float>* MainComponent::myHRTFConvolver(AudioBuffer<float>* s1, AudioBuffer<float>* s2, AudioBuffer<float>* s3, AudioBuffer<float>* s4, AudioBuffer<float>* s5, AudioBuffer<float>* s6, AudioBuffer<float>* hFR, AudioBuffer<float>* hC, AudioBuffer<float>* hFL, AudioBuffer<float>* hRL, AudioBuffer<float>* hRR);
+	AudioBuffer<float>* MainComponent::myHRTFConvolver(AudioBuffer<float>* s1, AudioBuffer<float>* s2, AudioBuffer<float>* s3, AudioBuffer<float>* s4, AudioBuffer<float>* s5, AudioBuffer<float>* s6, AudioBuffer<float>* hFL, AudioBuffer<float>* hFR, AudioBuffer<float>* hC, AudioBuffer<float>* hRL, AudioBuffer<float>* hRR);
 
 private:
     //==============================================================================

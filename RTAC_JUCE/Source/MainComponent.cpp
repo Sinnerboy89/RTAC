@@ -29,16 +29,38 @@ MainComponent::MainComponent()
     }
 
 	// load 5.1 signal
-	AudioBuffer<float>* file_fl, file_fr, file_c, file_lfe, file_rl, file_rr;
-	load_wav(file_fl, String("Load FL"));
-	load_wav(file_fl, String("Load FR"));
-	load_wav(file_fl, String("Load C"));
-	load_wav(file_fl, String("Load LFE"));
-	load_wav(file_fl, String("Load RL"));
-	load_wav(file_fl, String("Load RR"));
+	AudioBuffer<float> *fl_buf, *fr_buf, *c_buf, *lfe_buf, *rl_buf, *rr_buf;
+	load_wav(fl_buf, String("Load FL"));
+	load_wav(fr_buf, String("Load FR"));
+	load_wav(c_buf, String("Load C"));
+	load_wav(lfe_buf, String("Load LFE"));
+	load_wav(rl_buf, String("Load RL"));
+	load_wav(rr_buf, String("Load RR"));
 
 	// load HRIRs
+	AudioBuffer<float> *fl_hrir, *fr_hrir, *c_hrir, *rl_hrir, *rr_hrir;
+	load_wav(fl_hrir, String("Load FL HRIR"));
+	load_wav(fr_hrir, String("Load FR HRIR"));
+	load_wav(c_hrir, String("Load C HRIR"));
+	load_wav(rl_hrir, String("Load RL HRIR"));
+	load_wav(rr_hrir, String("Load RR HRIR"));
 
+	// Do the thing
+	AudioBuffer<float> *y;
+	y = myHRTFConvolver(fl_buf, fr_buf, c_buf, lfe_buf, rl_buf, rr_buf, fl_hrir, fr_hrir, c_hrir, rl_hrir, rr_hrir);
+
+	// save output to disk for QC
+	auto file = File("C:/Projects/RTAC/test.wav");
+	WavAudioFormat format;
+	std::unique_ptr<AudioFormatWriter> writer;
+	writer.reset(format.createWriterFor(new FileOutputStream (file),
+		48000.0,
+		y->getNumChannels(),
+		24,
+		{},
+		0));
+	if (writer != nullptr)
+		writer->writeFromAudioSampleBuffer(*y, 0, y->getNumSamples());
 	
 }
 

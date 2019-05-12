@@ -1,6 +1,6 @@
 #include "MainComponent.h"
 
-void MainComponent::load_wav(AudioBuffer<float>* ab, String prompt) {
+void MainComponent::load_wav(AudioBuffer<float> *ab, String prompt) {
 
 	AudioFormatManager formatManager;
 
@@ -18,12 +18,12 @@ void MainComponent::load_wav(AudioBuffer<float>* ab, String prompt) {
 	}
 }
 
-AudioBuffer<float>* MainComponent::myHRTFConvolver(AudioBuffer<float>* s1, AudioBuffer<float>* s2, AudioBuffer<float>* s3, AudioBuffer<float>* s4, AudioBuffer<float>* s5, AudioBuffer<float>* s6, AudioBuffer<float>* hFR, AudioBuffer<float>* hC, AudioBuffer<float>* hFL, AudioBuffer<float>* hRL, AudioBuffer<float>* hRR) {
+AudioBuffer<float>* MainComponent::myHRTFConvolver(AudioBuffer<float> *s1, AudioBuffer<float> *s2, AudioBuffer<float> *s3, AudioBuffer<float> *s4, AudioBuffer<float> *s5, AudioBuffer<float> *s6, AudioBuffer<float> *hFL, AudioBuffer<float> *hFR, AudioBuffer<float> *hC, AudioBuffer<float> *hRL, AudioBuffer<float> *hRR) {
 
 	/*  %% This function takes in input as the 5.1 audio buffers and their corresponding hrtfs
 		%  Performs convolution for all the channels and downmixes it to binaural */
 
-	AudioBuffer<float>* y;
+	AudioBuffer<float> *y;
 	AudioBuffer<float> cnvFR_out_buf;
 	dsp::AudioBlock<float> cnvFR_out_block (cnvFR_out_buf);
 	dsp::ProcessSpec PS;
