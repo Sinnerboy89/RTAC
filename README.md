@@ -11,19 +11,19 @@ Instructions/notes:
 
 To-Do
 
-Fix runtime errors (jassert, file format issue)
-Save output and compare with benchmark
-Tidy up 5.1 input
-Get "online" (have getnextaudioblock deal with I/O)
-Add load interface, process button and play button
-Run profiling / assess real-time aspect
-Consider methods of optimizing in MATLAB then JUCE
-Add graphs/plots
-Prepare points from to-do list and commit history
+  * Fix runtime errors (jassert, file format issue)
+  * Save output and compare with benchmark
+  * Tidy up 5.1 input
+  * Get "online" (have getnextaudioblock deal with I/O)
+  * Add load interface, process button and play button
+  * Run profiling / assess real-time aspect
+  * Consider methods of optimizing in MATLAB then JUCE
+  * Add graphs/plots
+  * Prepare points from to-do list and commit history
 
-
-Chop out small test section (full input too long)
-Try out live script and get benchmark stereo output
-Determine what live script is actually doing
-Load 5.1 input ready for convolver function
-Finish myHRTFConvolver conversion
+Done:
+  * Chop out small test section (full input too long)
+  * Try out live script and get benchmark stereo output
+  * Determine what live script is actually doing
+  * Load 5.1 input ready for convolver function
+  * Finish myHRTFConvolver conversion
